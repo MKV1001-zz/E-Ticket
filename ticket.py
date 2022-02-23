@@ -3,6 +3,7 @@ from uuid import uuid4
 import io 
 from PIL import Image
 
+
  
 def generate_ticket(event_id):
     email =""

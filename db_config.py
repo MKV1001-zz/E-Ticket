@@ -1,11 +1,12 @@
 import pymongo
 from pymongo import MongoClient
 import certifi
-import ssl 
+import os
 
 
-
-CONN_STRING ="mongodb+srv://mkv1001:vemms2001@cluster0.wbgpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+user = os.environ.get("MONGO_USER")
+password= os.environ.get("MONGO_PASS")
+CONN_STRING =f"mongodb+srv://{user}:{password}@cluster0.wbgpf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 
 def conn():
     try:
@@ -16,4 +17,4 @@ def conn():
     except Exception as e:
         raise Exception(e)
     
-db = conn()
+
